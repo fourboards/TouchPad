@@ -4,6 +4,8 @@ This folder contains the Arduino source code for the JacoBurge TouchPad (http://
 
 Make sure you have installed the JacoBurge hardware definitions in the TouchPad/hardware folder before proceeding.
 
+Download the entire contents of this folder into a folder called "TouchPad_V4.1"
+
 Open TouchPad_V1.4.ino in the Arduino IDE, follow the instructions at the top of the page to edit key functionality.
 
 To upload your modified TouchPad firmware:
