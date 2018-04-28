@@ -617,6 +617,7 @@ bool touchDetection() {
             }
 
             for (int i = 0; i < 5; i++) {
+#ifdef ENABLE_OTG_PROGRAMMER
               uint8_t temp = EEPROM.read((currentMode * 200) + (column * 30) + (row * 5) + i);
               if (temp != 255) {
                 if (((temp & 0b01111111) < 72) || ((temp & 0b01111111) > 83)) {
@@ -659,11 +660,14 @@ bool touchDetection() {
                 }
               }
               else {
+#endif
                 if (i == 0) {
                   keyPress(column, row, currentMode + 1); //If key not programmed, default to info stored in flash (KeyDefinitions.h)
                 }
                 break;
+#ifdef ENABLE_OTG_PROGRAMMER
               }
+#endif
             }
             Keyboard.releaseAll();
 
