@@ -66,10 +66,10 @@ uint16_t touchDetectionRoutine();
 void keyPress(int x, int y, int commandSet);
 
 
-const uint8_t SENr[6] = {1, 2, 3, 5, 6, 7};//Maps capacative pads to pins
+const uint8_t SENr[6] = {1, 2, 3, 5, 6, 7};//Maps capacitive pads to pins
 const uint8_t SENc[6] = {0, 4, 8, 9, 10, 11};
 
-volatile uint8_t LEDs[6][6];//Stores curent LED values
+volatile uint8_t LEDs[6][6];//Stores current LED values
 volatile uint8_t col = 0;//Keeps track of current multiplex column for LEDs
 
 //Stores how to display each key in the 'On the go programmer' in flash
@@ -157,7 +157,7 @@ uint8_t progR = 10, progC = 10;//10 when no key selected, row and column when ke
 uint8_t GUI_Menu = 0;//Stores current GUI menu, 0 when none displayed, 1-4 for menus, 5 for clear
 
 int8_t currentMode = 0;//Stores current mode 0 - 4
-uint16_t compat = 0;//Compatability mode off;
+uint16_t compat = 0;//Compatibility mode off;
 uint8_t setupEnable = 1;//No entering prog mode after first key press
 uint8_t factoryTest[12];//Used for factory testing of keys
 
@@ -192,7 +192,7 @@ void setup() {
   pinMode(5, OUTPUT);
   pinMode(13, OUTPUT);
 
-  pinMode(0, INPUT);//Capacitive Interrrupt
+  pinMode(0, INPUT);//Capacitive Interrupt
 
   if (EEPROM.read(1023) != 20) {//Setup EEPROM when first power up
     digitalWrite(11, 1);
@@ -211,7 +211,7 @@ void setup() {
       }
     }
     EEPROM.write(1023, 20);//Setup complete
-    EEPROM.write(1022, 0);//CurrentMode
+    EEPROM.write(1022, 0);//Current Mode
     EEPROM.write(1021, 20);//Factory Pass not complete
     EEPROM.write(1020, 0); //Compat setting
 
@@ -262,8 +262,8 @@ void setup() {
     digitalWrite(11, LOW);
   }
 
-  capSetup();//Setup capacative touch IC
-  writeDataToTS(0x06, 0x12);//Calibrate capacative touch IC
+  capSetup();//Setup capacitive touch IC
+  writeDataToTS(0x06, 0x12);//Calibrate capacitive touch IC
 
   if (state != FACTORY) {//Set LEDs to match the current command set
     delay(1000);
@@ -358,7 +358,7 @@ void loop() {
 
 //=========================================================================================================
 //=========================================================================================================
-// Check capacative array - Returns 1 for positive ID, 0 for negative ID
+// Check capacitive array - Returns 1 for positive ID, 0 for negative ID
 //=========================================================================================================
 //=========================================================================================================
 
@@ -473,7 +473,7 @@ bool touchDetection() {
               //===============================================================================================Swipe Up...
 
               if (state == NORMAL) {
-                if (setupEnable == 1) {//Only enter setup mode immediataley after power up!
+                if (setupEnable == 1) {//Only enter setup mode immediately after power up!
                   for (uint8_t i = row; i < 6; i++) {
                     LEDs[column][i] = 1;
                     delay(50);
@@ -515,7 +515,7 @@ bool touchDetection() {
             else {
               //===============================================================================================Swipe Down...
               if (state == NORMAL) {
-                if (setupEnable == 1) {//Only enter setup mode immediataley after power up!
+                if (setupEnable == 1) {//Only enter setup mode immediately after power up!
                   digitalWrite(7, HIGH);
                   analogWrite(6, 180);
                   for (int8_t i = row; i >= 0; i--) {
@@ -617,6 +617,7 @@ bool touchDetection() {
             }
 
             for (int i = 0; i < 5; i++) {
+#ifdef ENABLE_OTG_PROGRAMMER
               uint8_t temp = EEPROM.read((currentMode * 200) + (column * 30) + (row * 5) + i);
               if (temp != 255) {
                 if (((temp & 0b01111111) < 72) || ((temp & 0b01111111) > 83)) {
@@ -659,11 +660,14 @@ bool touchDetection() {
                 }
               }
               else {
+#endif
                 if (i == 0) {
                   keyPress(column, row, currentMode + 1); //If key not programmed, default to info stored in flash (KeyDefinitions.h)
                 }
                 break;
+#ifdef ENABLE_OTG_PROGRAMMER
               }
+#endif
             }
             Keyboard.releaseAll();
 
@@ -683,7 +687,7 @@ bool touchDetection() {
               }
             }
             if (compat > 0) {
-              Keyboard.print("Compatability level: ");
+              Keyboard.print("Compatibility level: ");
               Keyboard.print(compat / COMPATDELAY);
               Keyboard.releaseAll();
             }
@@ -1130,7 +1134,7 @@ void GUI_replace_lines() {
   toggleKey(176); //Return
 }
 
-//Scroll down and call replace kine
+//Scroll down and call replace line
 void GUI_replace_functions(uint8_t line) {
   for (uint8_t i = 0; i < line; i++) {
     toggleKey(217);//Down

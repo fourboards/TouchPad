@@ -87,7 +87,7 @@
    If you want to add more libraries, for example MIDI, you can add it below.
 
    Please note:  The key presses defined here will only be executed if
-   there are no key presses assigned via the 'On the go grogrammer'
+   there are no key presses assigned via the 'On the go programmer'
 
  *******************************************************************************/
 
@@ -1002,4 +1002,5 @@ void keyPress(int x, int y, int commandSet) {
       break;
   }
 }
+
 
