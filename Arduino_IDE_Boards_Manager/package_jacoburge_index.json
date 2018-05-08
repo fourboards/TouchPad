@@ -19,8 +19,8 @@
           },
           "url": "https://raw.githubusercontent.com/jacoburge/TouchPad/master/Arduino_IDE_Boards_Manager/jacoburge-1.0.0.zip",
           "archiveFileName": "jacoburge-1.0.0.zip",
-          "checksum": "SHA-256:245196A418593C4ABD28CA67B70088B739F6F64DB17262D789117E84F98DB001",
-          "size": "7417",
+          "checksum": "SHA-256:04E21F95E739F9675206A26E6D1C9AD74D6F1C0391FCE986EFA7211075EE84AF",
+          "size": "572",
           "boards": [
             {"name": "TouchPad"}
           ],
