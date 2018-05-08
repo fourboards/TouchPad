@@ -17,7 +17,7 @@
           "help": {
             "online": "http://jacoburge.co.uk/touchpad-documentation"
           },
-          "url": "https://github.com/jacoburge/TouchPad/tree/master/Arduino_IDE_Boards_Manager/JacoBurgeArduino1.0.0.zip",
+          "url": "https://raw.githubusercontent.com/jacoburge/TouchPad/master/Arduino_IDE_Boards_Manager/JacoBurgeArduino1.0.0.zip",
           "archiveFileName": "JacoBurgeArduino1.0.0.zip",
           "checksum": "SHA-256:245196A418593C4ABD28CA67B70088B739F6F64DB17262D789117E84F98DB001",
           "size": "7417",
