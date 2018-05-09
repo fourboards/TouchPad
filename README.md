@@ -7,7 +7,5 @@ Folder descriptions:
 - Touch_Pad_V4.1: Includes the TouchPad source code used to edit TouchPad functionality
 - Arduino_IDE_Boards_Manager: Includes files for use with Arduino Board Manager, this is for Arduino not you
 
-If you plan on using TouchPad with the Arduino IDE follow the instructions in jacoburge_hardware_master before following the instructions in Touch_Pad_V4.1.
-
-
 For more info visit www.jacoburge.co.uk/touch-pad/
+For instructions on use visit www.jacoburge.co.uk/touchpad-support
