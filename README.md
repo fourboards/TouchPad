@@ -5,7 +5,7 @@ Folder descriptions:
 - Overlays: Includes all the files required to make your own overlays
 - jacoburge_hardware_master: Includes the necessary files to use TouchPad with the Arduino IDE
 - Touch_Pad_V4.1: Includes the TouchPad source code used to edit TouchPad functionality
-- Arduino_IDE_Boards_Manager: Includes files for use with Arduino Board Manager, this is for Arduino not you!
+- Arduino_IDE_Boards_Manager: Includes files for use with Arduino Board Manager, this is for Arduino not you
 
 If you plan on using TouchPad with the Arduino IDE follow the instructions in jacoburge_hardware_master before following the instructions in Touch_Pad_V4.1.
 
