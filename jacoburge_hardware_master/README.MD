@@ -2,7 +2,7 @@
 
 This folder contains the Arduino hardware definitions for the JacoBurge TouchPad (http://jacoburge.co.uk/touch-pad).
 
-To install the JacoBurge definitions in the Arduino IDE:
+To manually install the JacoBurge definitions in the Arduino IDE (alternative available here http://jacoburge.co.uk/touchpad-support#installing_arduino):
 
 1. Close the Arduino IDE.  To ensure compatability keep your Arduino IDE up to date.
 2. Extract the .zip to a location of your choice
