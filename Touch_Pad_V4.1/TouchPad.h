@@ -247,14 +247,14 @@ void setup() {
     currentMode = 0;
   }
 
-  interruptSetup();//Setup LED matrix driver interrupt
-
   for (uint8_t i = 0; i < 6; i++) {//Clear all LEDs
     for (uint8_t j = 0; j < 6; j++) {
       LEDs[j][i] = 0;
     }
   }
-
+  
+  interruptSetup();//Setup LED matrix driver interrupt
+  
   if (state != FACTORY) {//If not still in factory test
     delay(2000);
     digitalWrite(11, HIGH);//Light power LED briefly, signals calibrating
