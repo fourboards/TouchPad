@@ -94,6 +94,7 @@
 //Compiler directives - effects TouchPad behaviour in described way
 #define ENABLE_MULTIPLE_COMMAND_SET //Comment this out (insert // before line) to fix command set to command set 1
 #define ENABLE_OTG_PROGRAMMER //Comment this out (insert // before line) to prevent the built in programming mode
+#define ENABLE_DEFAULT_RELEASE //Comment this out (insert // before line) to prevent all keys being released at the end of a key press automatically
  
 //Add any more libraries you need HERE (Serial is included in TouchPad.h at 9600 so this can be used without re-including):
 #include "KeyboardUK.h" //Edited version of Arduino keyboard library to add backslash key for UK setup, include standard Arduino library for US setup (#include <Keyboard.h>)

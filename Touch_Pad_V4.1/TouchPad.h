@@ -669,7 +669,9 @@ bool touchDetection() {
               }
 #endif
             }
+#ifdef ENABLE_DEFAULT_RELEASE
             Keyboard.releaseAll();
+#endif
 
             break;
           case NORMAL1:
