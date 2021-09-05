@@ -19,8 +19,8 @@
           },
           "url": "https://raw.githubusercontent.com/fourboards/TouchPad/master/Arduino_IDE_Boards_Manager/fourboards-1.0.0.zip",
           "archiveFileName": "fourboards-1.0.0.zip",
-          "checksum": "SHA-256:ffc6532cb0ebaf16b22df83164adf11fb48749e00a7df03ee12ac0dbe1438398",
-          "size": "7831",
+          "checksum": "SHA-256:56eea38036433cad16df8c9295602a17c369702bb5fd6476f533e546ea483af8",
+          "size": "7824",
           "boards": [
             {"name": "TouchPad"}
           ],
