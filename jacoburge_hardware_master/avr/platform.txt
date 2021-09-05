@@ -4,7 +4,7 @@
 # For more info:
 # https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5---3rd-party-Hardware-specification
 
-name=JacoBurge Boards
+name=Four Boards
 version=0.0.1
 
 # AVR compile variables

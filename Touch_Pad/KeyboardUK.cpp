@@ -2,7 +2,7 @@
  
   KeyboardUK.cpp
   
-  Edited by JacoBurge for TouchPad to function as a UK keyboard, changes:
+  Edited by Four Boards for TouchPad to function as a UK keyboard, changes:
     0x64|SHIFT,       // RS 0x30 reassigned to | for UK keyboards
     0x64,             // US 0x31 reassigned to \ for UK keyboards
   

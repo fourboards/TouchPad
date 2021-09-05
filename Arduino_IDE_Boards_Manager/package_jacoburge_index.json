@@ -1,26 +1,26 @@
 {
   "packages": [
     {
-      "name": "jacoburge",
-      "maintainer": "JacoBurge Electronics",
-      "websiteURL": "https://github.com/jacoburge/TouchPad",
-      "email": "touchpad@jacoburge.co.uk",
+      "name": "fourboards",
+      "maintainer": "Four Boards",
+      "websiteURL": "https://github.com/fourboards/TouchPad",
+      "email": "shop@fourboards.co.uk",
       "help": {
-        "online": "http://jacoburge.co.uk/touchpad-documentation"
+        "online": "http://fourboards.co.uk/touchpad-documentation"
       },
       "platforms": [
         {
-          "name": "JacoBurge Boards",
+          "name": "Four Boards",
           "architecture": "avr",
           "version": "1.0.0",
           "category": "Contributed",
           "help": {
-            "online": "http://jacoburge.co.uk/touchpad-documentation"
+            "online": "http://fourboards.co.uk/touchpad-documentation"
           },
-          "url": "https://raw.githubusercontent.com/jacoburge/TouchPad/master/Arduino_IDE_Boards_Manager/jacoburge-1.0.0.zip",
-          "archiveFileName": "jacoburge-1.0.0.zip",
-          "checksum": "SHA-256:5A89B97A606F2FBCE18FE0134C1DA36BB65B5CD9AA89C1BC276719005867D6F0",
-          "size": "7795",
+          "url": "https://raw.githubusercontent.com/fourboards/TouchPad/master/Arduino_IDE_Boards_Manager/fourboards-1.0.0.zip",
+          "archiveFileName": "fourboards-1.0.0.zip",
+          "checksum": "SHA-256:745969b5cdff4978a93253120bb619b3437d2f21314fb7da2b265b207a312413",
+          "size": "7443",
           "boards": [
             {"name": "TouchPad"}
           ],

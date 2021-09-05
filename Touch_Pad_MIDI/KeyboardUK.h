@@ -2,7 +2,7 @@
  
   KeyboardUK.h
   
-  Edited by JacoBurge for TouchPad to function as a UK keyboard.
+  Edited by Four Boards for TouchPad to function as a UK keyboard.
 
   Copyright (c) 2015, Arduino LLC
   Original code (pre-library): Copyright (c) 2011, Peter Barrett

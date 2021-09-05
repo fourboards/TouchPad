@@ -1,4 +1,4 @@
-= Keyboard Library for Arduino = UK Version edited for JacoBurge TouchPad
+= Keyboard Library for Arduino = UK Version edited for Four Boards TouchPad
 
 This library allows an Arduino board with USB capabilites to act as a Keyboard.
 Being based on HID library you need to include "HID.h" in your sketch.

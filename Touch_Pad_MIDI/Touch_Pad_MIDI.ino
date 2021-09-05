@@ -2,7 +2,7 @@
 
   MIT License
 
-  Copyright (c) 2018, JacoBurge
+  Copyright (c) 2021 Four Boards
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
@@ -21,13 +21,13 @@
   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
-  
+
   *******************************************************************************
-  
+
   TouchPad was successfully funded on Kickstarter on 12th March 2018.  A special thanks to the following backers who donated to the campaign as well as all those who showed their support by buying a TouchPad:
   Florence O’Neill, Alex, Thomas M, Melanie Thomson, Matthew, Julio Terra, Alejandro Esquivel, RandomColourzzz, JSYEHUA, Andrea Edgar, Apple Lo, Conor Nolan, Yves, senritsu, Charles Zyla, Acme Globes, Thomee Wright, Dag Henrik Bråtane
 
-/*******************************************************************************
+  /*******************************************************************************
 
       .  - - - - - - - - - - - - - - - - - - - - - - -  .
     .                                                     .
@@ -70,20 +70,20 @@
     break;
   ""
 
-   By default the JacoBurge UK Keyboard and Arduino Mouse libraries are included,
+   By default the Four Boards UK Keyboard and Arduino Mouse libraries are included,
    reference for these can be found at:
-   
+
     https://www.arduino.cc/reference/en/language/functions/usb/keyboard/
       - Use the following commands to control the keyboard: Keyboard.press(),Keyboard.print(),
         Keyboard.println(),Keyboard.release(),Keyboard.releaseAll(),Keyboard.write()
-      - Modifier keys are defined here: 
+      - Modifier keys are defined here:
         https://www.arduino.cc/reference/en/language/functions/usb/keyboard/keyboardmodifiers/
       - Keyboard.begin() is called in TouchPad.h so you do not need to call it again
     https://www.arduino.cc/reference/en/language/functions/usb/mouse/
       - Use the following commands to control the keyboard: Mouse.click(),Mouse.move(),
         Mouse.press(),Mouse.release(),Mouse.isPressed()
       - Mouse.begin() is called in TouchPad.h so you do not need to call it again
-      
+
    If you want to add more libraries, for example MIDI, you can add it below.
 
    Please note:  The key presses defined here will only be executed if
@@ -92,15 +92,42 @@
  *******************************************************************************/
 
 //Compiler directives - effects TouchPad behaviour in described way
-#define ENABLE_MULTIPLE_COMMAND_SET //Comment this out (insert // before line) to fix command set to command set 1
-#define ENABLE_OTG_PROGRAMMER //Comment this out (insert // before line) to prevent the built in programming mode
+//#define ENABLE_MULTIPLE_COMMAND_SET //Comment this out (insert // before line) to fix command set to command set 1
+//#define ENABLE_OTG_PROGRAMMER //Comment this out (insert // before line) to prevent the built in programming mode
 #define ENABLE_DEFAULT_RELEASE //Comment this out (insert // before line) to prevent all keys being released at the end of a key press automatically
- 
+
 //Add any more libraries you need HERE (Serial is included in TouchPad.h at 9600 so this can be used without re-including):
 #include "KeyboardUK.h" //Edited version of Arduino keyboard library to add backslash key for UK setup, include standard Arduino library for US setup (#include <Keyboard.h>)
 #include <Mouse.h> //Arduino mouse library
+#include "MIDIUSB.h" //Visit https://www.arduino.cc/en/Tutorial/MidiDevice for more info
 
 #include "TouchPad.h" //File required for TouchPad functionality, DO NOT REMOVE!
+
+// First parameter is the event type (0x09 = note on, 0x08 = note off).
+// Second parameter is note-on/note-off, combined with the channel.
+// Channel can be anything between 0-15. Typically reported to the user as 1-16.
+// Third parameter is the note number (48 = middle C).
+// Fourth parameter is the velocity (64 = normal, 127 = fastest).
+
+void noteOn(byte channel, byte pitch, byte velocity) {
+  midiEventPacket_t noteOn = {0x09, 0x90 | channel, pitch, velocity};
+  MidiUSB.sendMIDI(noteOn);
+}
+
+void noteOff(byte channel, byte pitch, byte velocity) {
+  midiEventPacket_t noteOff = {0x08, 0x80 | channel, pitch, velocity};
+  MidiUSB.sendMIDI(noteOff);
+}
+
+// First parameter is the event type (0x0B = control change).
+// Second parameter is the event type, combined with the channel.
+// Third parameter is the control number number (0-119).
+// Fourth parameter is the control value (0-127).
+
+void controlChange(byte channel, byte control, byte value) {
+  midiEventPacket_t event = {0x0B, 0xB0 | channel, control, value};
+  MidiUSB.sendMIDI(event);
+}
 
 void keyPress(int x, int y, int commandSet) {
   switch (commandSet) {
@@ -112,13 +139,15 @@ void keyPress(int x, int y, int commandSet) {
           switch (y) {
             //===================================================================== row 0
             case 0://Use this case for row 0, column 0, commandSet 1
-              //Keyboard.println("Hello world"); //EXAMPLE Type Hello World
+              noteOn(0, 50, 64);   // Channel 0, middle C, normal velocity
+              MidiUSB.flush();
+              delay(300);
+              noteOff(0, 50, 64);  // Channel 0, middle C, normal velocity
+              MidiUSB.flush();
               break;
             //===================================================================== row 1
             case 1://Use this case for row 1, column 0, commandSet 1
-              //Keyboard.press(KEY_LEFT_CTRL); //EXAMPLE Press Ctrl key
-              //Keyboard.press('c'); //EXAMPLE Also press c key
-              //Keyboard.releaseAll(); //EXAMPLE Release both keys
+              
               break;
             //===================================================================== row 2
             case 2://Use this case for row 2, column 0, commandSet 1
