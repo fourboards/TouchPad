@@ -6,7 +6,7 @@
       "websiteURL": "https://github.com/fourboards/TouchPad",
       "email": "shop@fourboards.co.uk",
       "help": {
-        "online": "http://fourboards.co.uk/touchpad-documentation"
+        "online": "http://fourboards.co.uk/touchpad-support"
       },
       "platforms": [
         {
@@ -15,7 +15,7 @@
           "version": "1.0.0",
           "category": "Contributed",
           "help": {
-            "online": "http://fourboards.co.uk/touchpad-documentation"
+            "online": "http://fourboards.co.uk/touchpad-support"
           },
           "url": "https://raw.githubusercontent.com/fourboards/TouchPad/master/Arduino_IDE_Boards_Manager/fourboards-1.0.0.zip",
           "archiveFileName": "fourboards-1.0.0.zip",
