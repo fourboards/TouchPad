@@ -1,6 +1,6 @@
 # TouchPad hardware files
 
-This folder contains the Arduino hardware definitions for the Four Boards TouchPad (http://fourboards.co.uk/touch-pad).
+This folder contains the Arduino hardware definitions for the Four Boards TouchPad (http://fourboards.co.uk/touchpad).
 
 To manually install the Four Boards definitions in the Arduino IDE (alternative available here http://fourboards.co.uk/touchpad-support#installing_arduino):
 

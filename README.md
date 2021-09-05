@@ -8,5 +8,5 @@ Folder descriptions:
 - Touch_Pad_MIDI: Includes an example firmware for using TouchPad as a MIDI device
 - Arduino_IDE_Boards_Manager: Includes files for use with Arduino Board Manager, this is for Arduino not you
 
-For more info visit www.fourboards.co.uk/touch-pad/
+For more info visit www.fourboards.co.uk/touchpad/
 For instructions on use visit www.fourboards.co.uk/touchpad-support

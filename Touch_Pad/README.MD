@@ -1,6 +1,6 @@
 # TouchPad source code
 
-This folder contains the Arduino source code for the Four Boards TouchPad (www.fourboards.co.uk/touch-pad).
+This folder contains the Arduino source code for the Four Boards TouchPad (www.fourboards.co.uk/touchpad).
 
 Make sure you have installed the Four Boards hardware definitions in the Arduino: www.fourboards.co.uk/touchpad-support#installing_arduino
 
